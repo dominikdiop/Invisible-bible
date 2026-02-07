@@ -7,8 +7,57 @@
     @apply transition-colors duration-200;
   }
   
+  /* Light theme (default) */
+  :root {
+    --bg-primary: linear-gradient(135deg, #f5f3ff 0%, #fce7f3 100%);
+    --bg-secondary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --border-color: #e9d5ff;
+    --accent-purple: #7c3aed;
+    --accent-pink: #db2777;
+    --accent-blue: #3b82f6;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(168, 85, 247, 0.1);
+  }
+
+  /* Dark theme - NEON BLUE text */
+  [data-theme="dark"] {
+    --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%);
+    --bg-secondary: #1e293b;
+    --text-primary: #60a5fa; /* Neon blue text */
+    --text-secondary: #93c5fd; /* Lighter blue */
+    --text-muted: #bfdbfe; /* Light blue */
+    --border-color: #4c1d95;
+    --accent-purple: #a855f7;
+    --accent-pink: #ec4899;
+    --accent-blue: #60a5fa;
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --shadow-color: rgba(168, 85, 247, 0.2);
+  }
+
   body {
-    @apply bg-gradient-to-br from-purple-50 to-pink-50 text-black;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  /* Enhanced neon blue glow for all text in dark mode */
+  [data-theme="dark"] h1,
+  [data-theme="dark"] h2,
+  [data-theme="dark"] h3,
+  [data-theme="dark"] h4,
+  [data-theme="dark"] h5,
+  [data-theme="dark"] h6,
+  [data-theme="dark"] p,
+  [data-theme="dark"] span,
+  [data-theme="dark"] div,
+  [data-theme="dark"] a {
+    text-shadow: 
+      0 0 5px rgba(96, 165, 250, 0.3),
+      0 0 10px rgba(96, 165, 250, 0.2),
+      0 0 15px rgba(96, 165, 250, 0.1);
   }
 }
 
@@ -17,20 +66,61 @@
     @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600;
   }
   
+  .dark .neon-purple {
+    @apply from-purple-400 to-pink-400;
+    text-shadow: 
+      0 0 10px rgba(168, 85, 247, 0.6),
+      0 0 20px rgba(168, 85, 247, 0.4),
+      0 0 30px rgba(168, 85, 247, 0.2);
+  }
+  
   .neon-border {
     @apply border-2 border-purple-400/30 shadow-[0_0_15px_rgba(168,85,247,0.3)];
+  }
+  
+  .dark .neon-border {
+    @apply border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.5)];
   }
   
   .neon-card {
     @apply bg-white/80 backdrop-blur-sm border border-purple-200 rounded-2xl shadow-lg shadow-purple-100;
   }
   
+  .dark .neon-card {
+    @apply bg-gray-800/60 backdrop-blur-sm border border-blue-500/30 shadow-lg shadow-blue-900/30;
+  }
+  
   .btn-neon {
     @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 hover:-translate-y-1;
   }
   
+  .dark .btn-neon {
+    @apply from-blue-500 to-cyan-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)];
+  }
+  
   .btn-outline-neon {
     @apply border-2 border-purple-500 text-purple-600 font-semibold rounded-full hover:bg-purple-50 transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .dark .btn-outline-neon {
+    @apply border-blue-400 text-blue-300 hover:bg-blue-900/30;
+  }
+  
+  /* Theme-specific text utilities */
+  .text-light {
+    @apply text-black;
+  }
+  
+  .dark .text-light {
+    @apply text-blue-300; /* Changed from white to blue */
+  }
+  
+  .text-muted-light {
+    @apply text-gray-600;
+  }
+  
+  .dark .text-muted-light {
+    @apply text-blue-200; /* Changed from gray to light blue */
   }
 }
 
@@ -42,6 +132,7 @@
     transform: translateY(-20px) rotate(180deg);
   }
 }
+
 .neon-cyan {
   color: #22d3ee;
   text-shadow: 
@@ -51,13 +142,55 @@
     0 0 40px #0ea5e9;
 }
 
+.dark .neon-cyan {
+  text-shadow: 
+    0 0 10px #22d3ee,
+    0 0 20px #22d3ee,
+    0 0 40px #0ea5e9,
+    0 0 80px #0369a1;
+}
+
 .neon-blue {
-  color: #3b82f6;
+  color: #60a5fa; /* Brighter blue for dark mode */
   text-shadow: 
     0 0 5px #3b82f6,
     0 0 10px #3b82f6,
     0 0 20px #3b82f6,
     0 0 40px #1d4ed8;
+}
+
+.dark .neon-blue {
+  color: #93c5fd; /* Even brighter for dark mode */
+  text-shadow: 
+    0 0 10px #60a5fa,
+    0 0 20px #3b82f6,
+    0 0 40px #1d4ed8,
+    0 0 80px #1e40af;
+}
+
+/* Enhanced blue glow for all text in dark mode */
+.dark {
+  color: #60a5fa; /* Default text color in dark mode */
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #93c5fd;
+  text-shadow: 
+    0 0 8px rgba(147, 197, 253, 0.5),
+    0 0 16px rgba(147, 197, 253, 0.3);
+}
+
+.dark p {
+  color: #bfdbfe;
+}
+
+.dark a:not(.btn-neon):not(.btn-outline-neon) {
+  color: #60a5fa;
+}
+
+.dark a:hover:not(.btn-neon):not(.btn-outline-neon) {
+  color: #93c5fd;
+  text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
 }
 
 /* Button variations */
@@ -74,6 +207,15 @@
   transform: translateY(-2px);
 }
 
+.dark .btn-cyan {
+  background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+  border: 1px solid rgba(8, 145, 178, 0.5);
+}
+
+.dark .btn-cyan:hover {
+  box-shadow: 0 0 30px rgba(8, 145, 178, 0.6);
+}
+
 .btn-outline-cyan {
   background: transparent;
   border: 2px solid #06b6d4;
@@ -83,4 +225,485 @@
 .btn-outline-cyan:hover {
   background: rgba(6, 182, 212, 0.1);
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.dark .btn-outline-cyan {
+  border: 2px solid #22d3ee;
+  color: #22d3ee;
+}
+
+.dark .btn-outline-cyan:hover {
+  background: rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* Dark theme specific enhancements - BLUE EDITION */
+.dark .bg-white\/90 {
+  background: rgba(30, 41, 59, 0.9) !important;
+}
+
+.dark .border-purple-200 {
+  border-color: rgba(59, 130, 246, 0.3) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-50 {
+  background: rgba(59, 130, 246, 0.1) !important; /* Blue instead of purple */
+}
+
+.dark .text-purple-600 {
+  color: #60a5fa !important; /* Blue instead of purple */
+}
+
+.dark .text-purple-400 {
+  color: #93c5fd !important; /* Light blue */
+}
+
+.dark .hover\:text-purple-600:hover {
+  color: #60a5fa !important;
+}
+
+.dark .hover\:text-purple-300:hover {
+  color: #93c5fd !important;
+}
+
+.dark .hover\:bg-purple-50:hover {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-100 {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .text-gray-700 {
+  color: #bfdbfe !important; /* Light blue */
+}
+
+.dark .text-gray-600 {
+  color: #93c5fd !important; /* Blue */
+}
+
+.dark .text-gray-300 {
+  color: #bfdbfe !important; /* Light blue */
+}
+
+.dark .text-gray-800 {
+  color: #93c5fd !important; /* Blue */
+}
+
+.dark .bg-gray-100 {
+  background: #374151 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #4b5563 !important;
+}
+
+.dark .bg-purple-900\/30 {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-900\/50 {
+  background: rgba(59, 130, 246, 0.3) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-800\/50 {
+  background: rgba(59, 130, 246, 0.4) !important; /* Blue instead of purple */
+}
+
+/* Special glow effects for blue theme */
+.dark .text-glow-blue {
+  text-shadow: 
+    0 0 10px rgba(96, 165, 250, 0.5),
+    0 0 20px rgba(96, 165, 250, 0.3),
+    0 0 30px rgba(96, 165, 250, 0.2);
+}
+
+.dark .border-glow-blue {
+  box-shadow: 
+    0 0 10px rgba(96, 165, 250, 0.3),
+    0 0 20px rgba(96, 165, 250, 0.2),
+    inset 0 0 10px rgba(96, 165, 250, 0.1);
+}
+
+/* Fix all shadow-[...] lines by removing spaces in rgba() values */
+
+.dark .btn-neon {
+  @apply from-blue-500 to-cyan-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)];
+}
+
+/* In the rest of the file, check these lines: */
+
+.dark .btn-cyan:hover {
+  box-shadow: 0 0 30px rgba(8, 145, 178, 0.6);
+}
+
+.dark .btn-outline-cyan:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.dark .bg-purple-900\/30 {
+  background: rgba(59, 130, 246, 0.2) !important;
+}
+
+.dark .bg-purple-900\/50 {
+  background: rgba(59, 130, 246, 0.3) !important;
+}
+
+.dark .bg-purple-800\/50 {
+  background: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Smooth theme transition override - ADD THIS */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition-duration: 200ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* Force immediate text color transitions */
+.theme-transitioning h1,
+.theme-transitioning h2,
+.theme-transitioning h3,
+.theme-transitioning h4,
+.theme-transitioning h5,
+.theme-transitioning h6,
+.theme-transitioning p,
+.theme-transitioning span,
+.theme-transitioning div,
+.theme-transitioning a,
+.theme-transitioning li,
+.theme-transitioning button {
+  transition-duration: 150ms !important;
+}
+
+/* Ensure background transitions are smooth */
+.theme-transitioning body,
+.theme-transitioning .bg-gradient-to-br,
+.theme-transitioning .neon-card,
+.theme-transitioning nav,
+.theme-transitioning footer {
+  transition-duration: 250ms !important;
+}
+
+/* Add a subtle animation for theme changes */
+@keyframes theme-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+.theme-transitioning main {
+  animation: theme-pulse 300ms ease-in-out;
+}
+
+/* Enhanced blue glow for all text in dark mode */
+.dark {
+  color: #60a5fa; /* Default text color in dark mode */
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #93c5fd;
+  text-shadow: 
+    0 0 8px rgba(147, 197, 253, 0.5),
+    0 0 16px rgba(147, 197, 253, 0.3);
+}
+
+.dark p {
+  color: #bfdbfe;
+}
+
+.dark a:not(.btn-neon):not(.btn-outline-neon) {
+  color: #60a5fa;
+}
+
+.dark a:hover:not(.btn-neon):not(.btn-outline-neon) {
+  color: #93c5fd;
+  text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+}
+
+/* Dark theme specific enhancements - BLUE EDITION */
+.dark .bg-white\/90 {
+  background: rgba(30, 41, 59, 0.9) !important;
+}
+
+.dark .border-purple-200 {
+  border-color: rgba(59, 130, 246, 0.3) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-50 {
+  background: rgba(59, 130, 246, 0.1) !important; /* Blue instead of purple */
+}
+
+.dark .text-purple-600 {
+  color: #60a5fa !important; /* Blue instead of purple */
+}
+
+.dark .text-purple-400 {
+  color: #93c5fd !important; /* Light blue */
+}
+
+.dark .hover\:text-purple-600:hover {
+  color: #60a5fa !important;
+}
+
+.dark .hover\:text-purple-300:hover {
+  color: #93c5fd !important;
+}
+
+.dark .hover\:bg-purple-50:hover {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-100 {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .text-gray-700 {
+  color: #bfdbfe !important; /* Light blue */
+}
+
+.dark .text-gray-600 {
+  color: #93c5fd !important; /* Blue */
+}
+
+.dark .text-gray-300 {
+  color: #bfdbfe !important; /* Light blue */
+}
+
+.dark .text-gray-800 {
+  color: #93c5fd !important; /* Blue */
+}
+
+.dark .bg-gray-100 {
+  background: #374151 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #4b5563 !important;
+}
+
+.dark .bg-purple-900\/30 {
+  background: rgba(59, 130, 246, 0.2) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-900\/50 {
+  background: rgba(59, 130, 246, 0.3) !important; /* Blue instead of purple */
+}
+
+.dark .bg-purple-800\/50 {
+  background: rgba(59, 130, 246, 0.4) !important; /* Blue instead of purple */
+}
+
+/* Special glow effects for blue theme */
+.dark .text-glow-blue {
+  text-shadow: 
+    0 0 10px rgba(96, 165, 250, 0.5),
+    0 0 20px rgba(96, 165, 250, 0.3),
+    0 0 30px rgba(96, 165, 250, 0.2);
+}
+
+.dark .border-glow-blue {
+  box-shadow: 
+    0 0 10px rgba(96, 165, 250, 0.3),
+    0 0 20px rgba(96, 165, 250, 0.2),
+    inset 0 0 10px rgba(96, 165, 250, 0.1);
+}
+
+/* Animations section */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.neon-cyan {
+  color: #22d3ee;
+  text-shadow: 
+    0 0 5px #22d3ee,
+    0 0 10px #22d3ee,
+    0 0 20px #22d3ee,
+    0 0 40px #0ea5e9;
+}
+
+.dark .neon-cyan {
+  text-shadow: 
+    0 0 10px #22d3ee,
+    0 0 20px #22d3ee,
+    0 0 40px #0ea5e9,
+    0 0 80px #0369a1;
+}
+
+.neon-blue {
+  color: #60a5fa; /* Brighter blue for dark mode */
+  text-shadow: 
+    0 0 5px #3b82f6,
+    0 0 10px #3b82f6,
+    0 0 20px #3b82f6,
+    0 0 40px #1d4ed8;
+}
+
+.dark .neon-blue {
+  color: #93c5fd; /* Even brighter for dark mode */
+  text-shadow: 
+    0 0 10px #60a5fa,
+    0 0 20px #3b82f6,
+    0 0 40px #1d4ed8,
+    0 0 80px #1e40af;
+}
+
+/* Button variations */
+.btn-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyan:hover {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+.dark .btn-cyan {
+  background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+  border: 1px solid rgba(8, 145, 178, 0.5);
+}
+
+.dark .btn-cyan:hover {
+  box-shadow: 0 0 30px rgba(8, 145, 178, 0.6);
+}
+
+.btn-outline-cyan {
+  background: transparent;
+  border: 2px solid #06b6d4;
+  color: #06b6d4;
+}
+
+.btn-outline-cyan:hover {
+  background: rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.dark .btn-outline-cyan {
+  border: 2px solid #22d3ee;
+  color: #22d3ee;
+}
+
+.dark .btn-outline-cyan:hover {
+  background: rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* ===== SMOOTH THEME TRANSITIONS ===== */
+/* This ensures ALL elements change color at the same time */
+
+/* Override all transitions during theme change */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition-duration: 200ms !important;
+  transition-delay: 0ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Make text change slightly faster than backgrounds */
+.theme-transitioning h1,
+.theme-transitioning h2,
+.theme-transitioning h3,
+.theme-transitioning h4,
+.theme-transitioning h5,
+.theme-transitioning h6,
+.theme-transitioning p,
+.theme-transitioning span,
+.theme-transitioning div,
+.theme-transitioning a,
+.theme-transitioning li {
+  transition-duration: 150ms !important;
+}
+
+/* Ensure background gradients transition smoothly */
+.theme-transitioning body,
+.theme-transitioning .bg-gradient-to-br,
+.theme-transitioning [class*="bg-gradient"] {
+  transition-duration: 250ms !important;
+}
+
+/* Key UI elements */
+.theme-transitioning nav,
+.theme-transitioning footer,
+.theme-transitioning .neon-card,
+.theme-transitioning .btn-neon,
+.theme-transitioning .btn-outline-neon {
+  transition-duration: 200ms !important;
+}
+
+/* Subtle pulse animation during transition */
+@keyframes theme-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.98; }
+}
+
+.theme-transitioning main {
+  animation: theme-pulse 300ms ease-in-out;
+}
+
+/* ===== DARK MODE TEXT BRIGHTNESS FIX ===== */
+/* Make dark mode text less blindingly bright */
+
+.dark {
+  color: #3b82f6; /* Softer blue instead of #60a5fa */
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #60a5fa; /* Medium blue */
+  text-shadow: 
+    0 0 5px rgba(59, 130, 246, 0.3),
+    0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.dark p, .dark span, .dark div {
+  color: #93c5fd; /* Light blue - readable but not too bright */
+}
+
+.dark .text-light {
+  color: #93c5fd !important; /* Consistent light blue */
+}
+
+.dark .text-muted-light {
+  color: #bfdbfe !important; /* Even softer blue for muted text */
+}
+
+/* Reduce glow intensity for better readability */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] a {
+  text-shadow: 
+    0 0 3px rgba(59, 130, 246, 0.2),
+    0 0 6px rgba(59, 130, 246, 0.1);
+}
+
+/* Make buttons less intense in dark mode */
+.dark .btn-neon {
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%) !important;
+}
+
+.dark .btn-outline-neon {
+  border-color: #3b82f6 !important;
+  color: #93c5fd !important;
+}
+
+/* Reduce card glow in dark mode */
+.dark .neon-card {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2) !important;
 }

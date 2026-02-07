@@ -10,6 +10,8 @@ import Books from './pages/Books';
 import NotFound from './pages/NotFound';
 import DigitalProject from './pages/DigitalProject';
 
+
+
 function ScrollToTopOnRouteChange() {
   const location = useLocation();
 
@@ -22,8 +24,18 @@ function ScrollToTopOnRouteChange() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState('light');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('invisibleBibleTheme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    
     window.scrollTo(0, 0);
     
     const timer = setTimeout(() => {
@@ -33,6 +45,26 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const toggleTheme = () => {
+    setIsTransitioning(true);
+    
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    // Add a temporary class for smooth transition
+    document.body.classList.add('theme-transitioning');
+    
+    // Change the theme
+    setTheme(newTheme);
+    localStorage.setItem('invisibleBibleTheme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    
+    // Remove the transition class after animation completes
+    setTimeout(() => {
+      document.body.classList.remove('theme-transitioning');
+      setIsTransitioning(false);
+    }, 300);
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
@@ -40,21 +72,27 @@ function App() {
       </div>
     );
   }
+  
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 text-black">
-      <Navbar />
-      <main>
+    
+    <div className={`min-h-screen transition-all duration-300 ${isTransitioning ? 'opacity-90' : 'opacity-100'} ${
+      theme === 'dark' 
+        ? 'dark bg-gradient-to-br from-gray-900 via-blue-900/30 to-gray-900 text-blue-300' 
+        : 'bg-gradient-to-br from-purple-50 to-pink-50 text-black'
+    }`}>
+      <Navbar theme={theme} toggleTheme={toggleTheme} isTransitioning={isTransitioning} />
+      <main className="transition-all duration-300">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/digital" element={<DigitalProject />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home theme={theme} isTransitioning={isTransitioning} />} />
+          <Route path="/about" element={<About theme={theme} isTransitioning={isTransitioning} />} />
+          <Route path="/contact" element={<Contact theme={theme} isTransitioning={isTransitioning} />} />
+          <Route path="/books" element={<Books theme={theme} isTransitioning={isTransitioning} />} />
+          <Route path="/digital" element={<DigitalProject theme={theme} isTransitioning={isTransitioning} />} />
+          <Route path="*" element={<NotFound theme={theme} isTransitioning={isTransitioning} />} />
         </Routes>
       </main>
-      <Footer />
+      <Footer theme={theme} isTransitioning={isTransitioning} />
     </div>
   );
 }

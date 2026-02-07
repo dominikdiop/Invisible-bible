@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
-function Home() {
+function Home({theme}) {
   const fullVideoConfig = {
     id: "rE1136gXUKw",
     startTime: 39,
@@ -16,6 +16,8 @@ function Home() {
   const whatsappUrl = "https://api.whatsapp.com/send?phone=17477772758&text=Hello";
 
   return (
+        <div className={theme === 'dark' ? 'text-white' : 'text-black'}>
+
     <div className="pt-16">
       {/* Hero Section with Big Background Video */}
       <section className="min-h-screen flex items-center px-4 relative overflow-hidden">
@@ -321,6 +323,7 @@ function Home() {
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 }
