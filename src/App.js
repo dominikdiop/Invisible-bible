@@ -6,6 +6,9 @@ import Loading from './components/UI/Loading';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Books from './pages/Books';
+import NotFound from './pages/NotFound';
+import DigitalProject from './pages/DigitalProject';
 
 function ScrollToTopOnRouteChange() {
   const location = useLocation();
@@ -46,6 +49,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/digital" element={<DigitalProject />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

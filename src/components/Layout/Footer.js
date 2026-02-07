@@ -47,7 +47,7 @@ function Footer() {
         },
         {
             icon: faEnvelope,
-            url: 'mailto:info@meccatochrist.org',
+            url: 'mailto:info@invisible.bible',
             label: 'Email',
             color: 'hover:text-purple-600'
         }
@@ -100,16 +100,17 @@ function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-bold mb-4 text-black">Community</h4>
+                        <h4 className="text-lg font-bold mb-4 text-black">Digital Invisible Bible</h4>
                         <ul className="space-y-2">
-                            <li>
-                                <span className="text-gray-700">For Seekers</span>
+                             <li>
+                                <Link to="/contact" className="text-blue-700 hover:text-purple-600 transition-colors">
+                                    Seekers
+                                </Link>
                             </li>
-                            <li>
-                                <span className="text-gray-700">Meditation Circles</span>
-                            </li>
-                            <li>
-                                <span className="text-gray-700">Wisdom Gatherings</span>
+                             <li>
+                                <Link to="/digital" className="text-gray-700 hover:text-purple-600 transition-colors">
+                                    Digital
+                                </Link>
                             </li>
                         </ul>
                     </div>

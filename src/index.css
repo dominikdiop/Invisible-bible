@@ -33,3 +33,54 @@
     @apply border-2 border-purple-500 text-purple-600 font-semibold rounded-full hover:bg-purple-50 transition-all duration-300 hover:-translate-y-1;
   }
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+.neon-cyan {
+  color: #22d3ee;
+  text-shadow: 
+    0 0 5px #22d3ee,
+    0 0 10px #22d3ee,
+    0 0 20px #22d3ee,
+    0 0 40px #0ea5e9;
+}
+
+.neon-blue {
+  color: #3b82f6;
+  text-shadow: 
+    0 0 5px #3b82f6,
+    0 0 10px #3b82f6,
+    0 0 20px #3b82f6,
+    0 0 40px #1d4ed8;
+}
+
+/* Button variations */
+.btn-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyan:hover {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline-cyan {
+  background: transparent;
+  border: 2px solid #06b6d4;
+  color: #06b6d4;
+}
+
+.btn-outline-cyan:hover {
+  background: rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}

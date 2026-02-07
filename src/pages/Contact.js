@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 function Contact() { 
-  const FORMSPREE_FORM_ID = "info@meccatochrist.org";
+  const FORMSPREE_FORM_ID = "info@invisible.bible";
   
   const contactInfo = {
     address: "1317 Edgewater Dr STE 4774, Orlando, FL 32804, United States",
-    email: "info@meccatochrist.org",
+    email: "info@invisible.bible",
     whatsapp: "https://wa.link/q3xmm0",
     mapLocation: {
       lat: 28.538336,
@@ -82,7 +82,7 @@ function Contact() {
             Contact the Seekers
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Reach out to us for spiritual guidance, language inquiries, or underground church support
+            Reach out to us for biblical guidance, language inquiries, or underground church support
           </p>
         </div>
 

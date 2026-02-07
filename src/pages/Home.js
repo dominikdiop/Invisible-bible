@@ -52,7 +52,7 @@ function Home() {
               </div>
 
               <p className="text-xl lg:text-3xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-                Let's make the Word Visible to only those who are in danger because of their faith in Jesus.
+                Let's make the Word Visible to only those who are in <span className='text-red-500'>danger</span> because of their faith in <span className='text-blue-400'>Jesus</span>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 mb-12">
@@ -90,141 +90,141 @@ function Home() {
       </section>
 
       {/* Rest of the page remains the same from here... */}
-   {/* Purchase Section */}
-<section className="py-20 px-4">
-  <div className="container mx-auto max-w-6xl">
-    <div className="neon-card p-8 md:p-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div>
-          {/* Book Icon */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center">
-              <span className="text-3xl text-white">📖</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold neon-purple">
-              Would you like to buy one?
-            </h2>
-          </div>
-          
-          <p className="text-2xl md:text-3xl mb-8 leading-relaxed">
-            We print in many languages and sizes.
-          </p>
-          <p className="text-lg text-gray-700 mb-10">
-            With each book sold, we will be able to print and ship thousands 
-            of copies to underground believers who are waiting for their copies 
-            so they can read the scripture safely!
-          </p>
+      {/* Purchase Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="neon-card p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div>
+                {/* Book Icon */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center">
+                    <span className="text-3xl text-white">📖</span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-bold neon-purple">
+                    Would you like to buy one?
+                  </h2>
+                </div>
 
-          {/* Purchase Buttons */}
-          <div className="space-y-4 mb-10">
-            <a
-              href="https://proclaimpublishers.com/collections/invisible-bible-products"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xl font-semibold rounded-full hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 hover:-translate-y-1"
-            >
-              <span className="text-2xl">🛒</span>
-              <span>Buy Invisible Bible & Gospel</span>
-            </a>
-            
-            <div className="text-center text-sm text-gray-600">
-              Available in multiple languages and formats
-            </div>
-          </div>
+                <p className="text-2xl md:text-3xl mb-8 leading-relaxed">
+                  We print in many languages and sizes.
+                </p>
+                <p className="text-lg text-gray-700 mb-10">
+                  With each copy sold, we will be able to print and ship an equivalent to
+                  thousands of underground believers who are waiting for their copies
+                  so they can read the scripture safely!
+                </p>
 
-          {/* Language Tags */}
-          <div className="mt-8">
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Available Languages:</h3>
-            <div className="flex flex-wrap gap-3">
-              {['English', 'Arabic', 'Mandarin Chineses', 'Bahasa Indonesia', 'Farsi'].map((lang) => (
-                <span
-                  key={lang}
-                  className="px-4 py-2 bg-purple-50 border border-purple-300 rounded-full text-purple-700 hover:border-purple-400 hover:bg-purple-100 transition-colors"
+                {/* Purchase Buttons */}
+                <div className="space-y-4 mb-10">
+                  <a
+                    href="https://proclaimpublishers.com/collections/invisible-bible-products"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xl font-semibold rounded-full hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <span className="text-2xl">🛒</span>
+                    <span>Buy Invisible Bible & Gospel</span>
+                  </a>
+
+                  <div className="text-center text-sm text-gray-600">
+                    Available in multiple languages and formats
+                  </div>
+                </div>
+
+                {/* Language Tags */}
+                <div className="mt-8">
+                  <h3 className="text-xl font-bold mb-4 text-gray-800">Available Languages:</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {['English', 'Arabic', 'Mandarin Chineses', 'Bahasa Indonesia', 'Farsi'].map((lang) => (
+                      <span
+                        key={lang}
+                        className="px-4 py-2 bg-purple-50 border border-purple-300 rounded-full text-purple-700 hover:border-purple-400 hover:bg-purple-100 transition-colors"
+                      >
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center justify-center space-y-8">
+                {/* WhatsApp Section */}
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <FontAwesomeIcon icon={faWhatsapp} className="text-5xl text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Contact for Bulk Orders</h3>
+                  <p className="text-gray-700 mb-8 max-w-md">
+                    Get information about language availability, bulk pricing,
+                    church distribution options, and underground church support.
+                  </p>
+                </div>
+
+                {/* WhatsApp Button */}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full max-w-md px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-xl font-semibold rounded-full hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] transition-all duration-300 hover:-translate-y-1 flex items-center justify-center space-x-3"
                 >
-                  {lang}
-                </span>
-              ))}
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
+                  <span>Message for Bulk Orders</span>
+                </a>
+
+                {/* Purchase Links Section */}
+                <div className="w-full max-w-md p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-200">
+                  <h4 className="text-lg font-bold mb-4 text-center text-gray-800">Purchase Options</h4>
+                  <div className="space-y-3">
+                    <a
+                      href="https://proclaimpublishers.com/collections/invisible-bible-products"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">📚</span>
+                        <span className="font-medium">Invisible Bible</span>
+                      </div>
+                      <span className="text-purple-600 font-semibold">Buy Now</span>
+                    </a>
+
+                    <a
+                      href="https://proclaimpublishers.com/collections/invisible-bible-products"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">✝️</span>
+                        <span className="font-medium">Invisible Gospel Of John</span>
+                      </div>
+                      <span className="text-purple-600 font-semibold">Buy Now</span>
+                    </a>
+
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">📦</span>
+                        <span className="font-medium">Bulk Orders</span>
+                      </div>
+                      <span className="text-green-600 font-semibold">Contact</span>
+                    </a>
+                  </div>
+                </div>
+
+                <p className="text-sm text-gray-600 text-center">
+                  We typically respond within 24 hours
+                </p>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="flex flex-col items-center justify-center space-y-8">
-          {/* WhatsApp Section */}
-          <div className="text-center">
-            <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <FontAwesomeIcon icon={faWhatsapp} className="text-5xl text-white" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4">Contact for Bulk Orders</h3>
-            <p className="text-gray-700 mb-8 max-w-md">
-              Get information about language availability, bulk pricing, 
-              church distribution options, and underground church support.
-            </p>
-          </div>
-
-          {/* WhatsApp Button */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full max-w-md px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-xl font-semibold rounded-full hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] transition-all duration-300 hover:-translate-y-1 flex items-center justify-center space-x-3"
-          >
-            <FontAwesomeIcon icon={faWhatsapp} className="text-2xl" />
-            <span>Message for Bulk Orders</span>
-          </a>
-
-          {/* Purchase Links Section */}
-          <div className="w-full max-w-md p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-200">
-            <h4 className="text-lg font-bold mb-4 text-center text-gray-800">Purchase Options</h4>
-            <div className="space-y-3">
-              <a
-                href="https://proclaimpublishers.com/collections/invisible-bible-products"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">📚</span>
-                  <span className="font-medium">Invisible Bible</span>
-                </div>
-                <span className="text-purple-600 font-semibold">Buy Now</span>
-              </a>
-              
-              <a
-                href="https://proclaimpublishers.com/collections/invisible-bible-products"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">✝️</span>
-                  <span className="font-medium">Invisible Gospel Of John</span>
-                </div>
-                <span className="text-purple-600 font-semibold">Buy Now</span>
-              </a>
-              
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-white rounded-lg border border-purple-200 hover:border-purple-400 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">📦</span>
-                  <span className="font-medium">Bulk Orders</span>
-                </div>
-                <span className="text-green-600 font-semibold">Contact</span>
-              </a>
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-600 text-center">
-            We typically respond within 24 hours
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Underground Church Section */}
       <section className="py-20 px-4">
@@ -234,7 +234,8 @@ function Home() {
               Together We Can Make a Difference
             </h2>
             <p className="text-2xl md:text-3xl mb-10 leading-relaxed">
-              Together, we can make a publishing press in each restrictive country to help the underground church!
+              Together, we can ultimately reach our goal of eradicating biblical illiteracy and establishing
+              a publishing press in each restrictive country to help the underground church and isolated believers!
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -300,7 +301,7 @@ function Home() {
             Begin Your <span className="neon-purple">Journey</span>
           </h2>
           <p className="text-xl lg:text-2xl mb-10 lg:mb-12 max-w-3xl mx-auto leading-relaxed">
-            Join over a million seekers worldwide in discovering the invisible truths.
+            help thousands of seekers and isolated believers worldwide in reading the scripture safely through the invisible bible.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a

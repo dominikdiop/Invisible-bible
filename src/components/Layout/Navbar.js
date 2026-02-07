@@ -8,6 +8,8 @@ function Navbar() {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
+    { path: '/books', label: 'Books' },
+    { path: '/Digital', label: 'Digital' },
     { path: '/contact', label: 'Contact' },
     { 
       type: 'external', 
