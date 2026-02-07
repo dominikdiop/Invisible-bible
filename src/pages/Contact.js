@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 function Contact() { 
-  const FORMSPREE_FORM_ID = "info@invisible.bible";
+  // ✅ Use your actual Formspree ID here
+  const FORMSPREE_FORM_ID = "xlgwenyd";
   
   const contactInfo = {
     address: "1317 Edgewater Dr STE 4774, Orlando, FL 32804, United States",
@@ -39,6 +40,7 @@ function Contact() {
     setError('');
 
     try {
+      // Formspree API call
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: 'POST',
         headers: {
@@ -50,19 +52,21 @@ function Contact() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          _replyto: formData.email,
+          _replyto: formData.email, // This sets the reply-to address
           _subject: `Invisible Bible Contact: ${formData.subject}`
         })
       });
 
       const data = await response.json();
 
-      if (data.ok) {
+      if (response.ok) {
+        // Success!
         setSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
-        setError('Failed to send message. Please try again.');
+        // Show Formspree error
+        setError(data.error || 'Failed to send message. Please try again.');
       }
     } catch (err) {
       console.error('Error:', err);
@@ -97,7 +101,10 @@ function Contact() {
                     <span className="text-3xl text-white">✓</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-green-600">Message Sent!</h3>
-                  <p className="text-gray-700 mb-6">We'll respond within 24-48 hours.</p>
+                  <p className="text-gray-700 mb-6">
+                    Your message has been sent to info@invisible.bible. 
+                    We'll respond within 24-48 hours.
+                  </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="px-6 py-3 border border-purple-500 text-purple-600 rounded-full hover:bg-purple-50 transition-colors"
@@ -109,7 +116,14 @@ function Contact() {
                 <>
                   {error && (
                     <div className="mb-6 p-4 bg-red-50 border border-red-300 rounded-lg">
-                      <p className="text-red-700">{error}</p>
+                      <p className="text-red-700">
+                        {error.includes('verify') 
+                          ? 'Email verification required. Please check your Formspree account to verify info@invisible.bible'
+                          : error}
+                      </p>
+                      <p className="text-sm text-red-600 mt-2">
+                        In the meantime, you can email us directly at info@invisible.bible
+                      </p>
                     </div>
                   )}
 
@@ -181,13 +195,27 @@ function Contact() {
                       disabled={isLoading}
                       className={`w-full py-4 btn-neon ${isLoading ? 'opacity-70' : ''}`}
                     >
-                      {isLoading ? 'Sending...' : 'Send Message'}
+                      {isLoading ? (
+                        <span className="flex items-center justify-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : 'Send Message'}
                     </button>
+                    
+                    <p className="text-sm text-gray-500 mt-3 text-center">
+                      Messages are sent via Formspree to info@invisible.bible
+                    </p>
                   </form>
                 </>
               )}
             </div>
 
+            {/* Rest of your component remains exactly the same... */}
+            {/* Don't change the map and contact info sections */}
             <div className="neon-card p-8">
               <h2 className="text-2xl font-bold mb-6">Our Location</h2>
               
